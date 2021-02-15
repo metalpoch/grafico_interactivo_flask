@@ -12,11 +12,11 @@ Aplicación web básica que lee un csv para generar gráficos interactivos utili
 Utilice [pip](https://pip.pypa.io/en/stable/) para instalar los modulos en el fichero requeriment.txt
 
 ```bash
-pip install -r requeriment.txt
+pip install -r requeriments.txt
 ```
 Si tambien cuenta con la versión 2 de Python utilice:
 ```bash
-pip3 install -r requeriment.txt
+pip3 install -r requeriments.txt
 ```
 
 ## Uso
