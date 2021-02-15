@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aplicación web básica con Python, Pandas y Plotly, utilizando datos proporcionados libremente por Conatel en el portal web 'Datos Abiertos VE'."/>
+    <meta name="keywords" content="Python, Flask, Pandas, Plotly, Json, Dataframe, Gráficos"/>
+    <meta name="author" content="Keiber Urbila" />
+    <meta name="copyright" content="MIT">
+    <title>FastAPP Pandas-Plotly</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  </head>
+  <body class=bg-dark>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #141619">
+      <div class="container">
+	<a class="navbar-brand" href="#">Suscriptores Internet Venezuela</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	  <div class="navbar-nav">
+	  </div>
+	</div>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <div class="row">
+	<div class="col">
+	  {% for table in dataframe %}
+	  {{ table | safe }}
+	  {% endfor %}
+	</div>
+	<div class="col">
+	  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	  <div id="areachart" class="chart">
+	    <script>
+	      let graphs = {{ graph_json | safe }};
+	      Plotly.plot('areachart', graphs, {});
+	    </script>      
+	  </div>
+	  <hr>
+	  <div class="container">
+	    <strong class="text-muted"> Las cifras preliminares desde el 2016 estan basadas en la Encuesta Trimestral Agregada de los Principales Indicadores del Sector. Conatel.</strong><br>
+	    <small class="text-muted">Nota: No se toman en cuenta los suscriptores de telefonos moviles celulares.</small>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
